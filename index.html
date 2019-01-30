@@ -9,21 +9,45 @@
     <title>Pig Dice</title>
   </head>
   <body>
-    <h1>Pig Dice</h1>
-    <h3>Player 1</h3>
-    <button id="dice-pigz" class="btn-primary btn-lg">Roll!</button>
-    <span id="pig-results"></span>
-    <br>
-    <span id="pig-score"></span>
-    <br>
-    <button id="dice-pigz-hold" class="btn-danger btn-lg">Hold!</button>
-    <hr>
-    <h3>Player 2</h3>
-    <button id="dice-pigz2" class="btn-success btn-lg">Now YOU roll!</button>
-    <span id="pig-results2"></span>
-    <br>
-    <span id="pig-score2"></span>
-    <br>
-    <button id="dice-pigz-hold2" class="btn-danger btn-lg">Hold!</button>
+    <div class="container" id="startScreen">
+      <h1>How do you want to play Pig Dice??</h1>
+      <button id="activate1P" class="btn-primary btn-lg">Single Player</button>
+      <button id="activate2P" class="btn-success btn-lg">Two Player</button>
+    </div>
+
+    <div class="container" id="onePlayer">
+      <h1>Single Player Pig Dice</h1>
+      <h3>Player 1</h3>
+      <button id="one-pigz" class="btn-primary btn-lg">Roll!</button>
+      <span id="one-results"></span>
+      <br>
+      <span id="one-score"></span>
+      <br>
+      <button id="one-pigz-hold" class="btn-danger btn-lg">Hold!</button>
+      <hr>
+      <h3>Computer</h3>
+      <span id="ai-results"></span>
+      <br>
+      <span id="ai-score"></span>
+    </div>
+
+    <div class="container" id="twoPlayer">
+      <h1>Pig Dice</h1>
+      <h3>Player 1</h3>
+      <button id="dice-pigz" class="btn-primary btn-lg">Roll!</button>
+      <span id="pig-results"></span>
+      <br>
+      <span id="pig-score"></span>
+      <br>
+      <button id="dice-pigz-hold" class="btn-danger btn-lg">Hold!</button>
+      <hr>
+      <h3>Player 2</h3>
+      <button id="dice-pigz2" class="btn-success btn-lg">Now YOU roll!</button>
+      <span id="pig-results2"></span>
+      <br>
+      <span id="pig-score2"></span>
+      <br>
+      <button id="dice-pigz-hold2" class="btn-danger btn-lg">Hold!</button>
+    </div>
   </body>
 </html>
