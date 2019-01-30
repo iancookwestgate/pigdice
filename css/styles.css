@@ -1,3 +1,11 @@
+#onePlayer {
+  display: none;
+}
+
+#twoPlayer {
+  display: none;
+}
+
 #dice-pigz2 {
   display: none;
 }
