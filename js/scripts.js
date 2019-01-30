@@ -1,16 +1,28 @@
+function Player(score) {
+  this.score = score
+}
+Player.prototype.calculate = function(scoreArr) {
+  function getTotal(total, num) {
+    return total + num;
+  }
+  var total = scoreArr.reduce(getTotal);
+  this.score = total + this.score;
+}
+
 function diceRoll () {
   var random = Math.floor(Math.random() * 6)
   return random+1;
 }
 
-var scoreArr = [];
-var scoreArr2 = [];
-var player1Score;
-var player2Score;
+
 
 $(document).ready(function() {
+  var player1 = new Player(0);
+  var player2 = new Player(0);
+  var scoreArr = [];
   $("#dice-pigz").click(function(event) {
     var roll = diceRoll();
+
     $("#pig-results").append(roll + " ");
     if (roll === 1) {
       total = 0;
@@ -18,17 +30,15 @@ $(document).ready(function() {
       $("#dice-pigz-hold").hide();
       $("#dice-pigz2").show();
       $("#dice-pigz-hold2").show();
+      scoreArr=[];
     } else {
       scoreArr.push(roll);
     }
-    function getTotal(total, num) {
-      return total + num;
-    }
-    var total = scoreArr.reduce(getTotal);
 
-    $("#pig-score").text(total);
   });
   $("#dice-pigz-hold").click(function(event) {
+    player1.calculate(scoreArr)
+    $("#pig-score").text(player1.score);
     $("#dice-pigz").hide();
     $("#dice-pigz-hold").hide();
     $("#dice-pigz2").show();
@@ -44,17 +54,15 @@ $(document).ready(function() {
       $("#dice-pigz-hold").show();
       $("#dice-pigz2").hide();
       $("#dice-pigz-hold2").hide();
+      scoreArr=[];
     } else {
-      scoreArr2.push(roll);
+      scoreArr.push(roll);
     }
-    function getTotal(total, num) {
-      return total + num;
-    }
-    var total = scoreArr2.reduce(getTotal);
 
-    $("#pig-score2").text(total);
   })
   $("#dice-pigz-hold2").click(function(event) {
+    player2.calculate(scoreArr);
+    $("#pig-score2").text(player2.score);
     $("#dice-pigz").show();
     $("#dice-pigz-hold").show();
     $("#dice-pigz2").hide();
