@@ -14,12 +14,11 @@ function diceRoll () {
   return random+1;
 }
 
-
-
 $(document).ready(function() {
   var player1 = new Player(0);
   var player2 = new Player(0);
   var scoreArr = [];
+  
   $("#dice-pigz").click(function(event) {
     var roll = diceRoll();
 
@@ -34,7 +33,6 @@ $(document).ready(function() {
     } else {
       scoreArr.push(roll);
     }
-
   });
   $("#dice-pigz-hold").click(function(event) {
     player1.calculate(scoreArr)
@@ -58,7 +56,6 @@ $(document).ready(function() {
     } else {
       scoreArr.push(roll);
     }
-
   })
   $("#dice-pigz-hold2").click(function(event) {
     player2.calculate(scoreArr);
@@ -68,5 +65,4 @@ $(document).ready(function() {
     $("#dice-pigz2").hide();
     $("#dice-pigz-hold2").hide();
   });
-
 })
