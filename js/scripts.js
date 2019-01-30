@@ -35,10 +35,6 @@ $(document).ready(function() {
   var player1 = new Player(0);
   var player2 = new Player(0);
   var scoreArr = [];
-<<<<<<< HEAD
-  
-  $("#dice-pigz").click(function(event) {
-=======
   var computer = new Player(0);
   // SELECT ONE PLAYER
   $("#activate1P").click(function(event) {
@@ -54,7 +50,6 @@ $(document).ready(function() {
 
   // ONE PLAYER UI LOGIC
   $("#one-pigz").click(function(event) {
->>>>>>> refactor
     var roll = diceRoll();
     $("#one-results").append(roll + " ");
     if (roll === 1) {
@@ -111,11 +106,7 @@ $(document).ready(function() {
     } else {
       scoreArr.push(roll);
     }
-<<<<<<< HEAD
-  })
-=======
   });
->>>>>>> refactor
   $("#dice-pigz-hold2").click(function(event) {
     player2.calculate(scoreArr);
     $("#pig-score2").text(player2.score);
