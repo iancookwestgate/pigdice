@@ -14,7 +14,11 @@ function aiPlayer(computer) {
   for (var i = 0; i <= 1; i++) {
     var roll = diceRoll();
     var roll2 = diceRoll();
-    if (roll === 1) {
+    if (roll === 1 && roll2 === 1) {
+      aiArr.push(0);
+      computer.score = 0;
+      break;
+  } else if (roll === 1) {
       aiArr.push(0);
       break;
     } else {
@@ -62,8 +66,15 @@ $(document).ready(function() {
     var roll = diceRoll();
     var roll2 = diceRoll();
     $("#one-results").append(roll + " ");
-    $("#one-results").append(roll2 + " ");
-    if (roll === 1) {
+    $("#one-results").append(roll2 + ", ");
+    if (player1.score >= 100) {
+      <img class="active" src="img/star-lord.jpg" alt="STAR PIG">
+    } else if (roll === 1 && roll2 === 1) {
+    total = 0;
+    player1.score = 0;
+    var computerScore = aiPlayer(computer);
+    $("#ai-results").text(computerScore);
+    } else if (roll === 1) {
       total = 0;
       scoreArr=[];
       var computerScore = aiPlayer(computer);
@@ -92,8 +103,15 @@ $(document).ready(function() {
     var roll = diceRoll();
     var roll2 = diceRoll();
     $("#pig-results").append(roll + " ");
-    $("#pig-results").append(roll2 + " ");
-    if (roll === 1) {
+    $("#pig-results").append(roll2 + ", ");
+    if (roll === 1 && roll2 === 1) {
+      total = 0;
+      player1.score = 0;
+      $("#dice-pigz").hide();
+      $("#dice-pigz-hold").hide();
+      $("#dice-pigz2").show();
+      $("#dice-pigz-hold2").show();
+    } else if (roll === 1) {
       total = 0;
       $("#dice-pigz").hide();
       $("#dice-pigz-hold").hide();
@@ -129,8 +147,15 @@ $(document).ready(function() {
     var roll = diceRoll();
     var roll2 = diceRoll();
     $("#pig-results2").append(roll + " ");
-    $("#pig-results2").append(roll2 + " ");
-    if (roll === 1) {
+    $("#pig-results2").append(roll2 + ", ");
+    if (roll === 1 && roll2 === 1) {
+      total = 0;
+      player2.score = 0;
+      $("#dice-pigz").show();
+      $("#dice-pigz-hold").show();
+      $("#dice-pigz2").hide();
+      $("#dice-pigz-hold2").hide();
+    } else if (roll === 1) {
       total = 0;
       $("#dice-pigz").show();
       $("#dice-pigz-hold").show();
