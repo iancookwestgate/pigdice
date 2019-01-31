@@ -11,15 +11,22 @@ Player.prototype.calculate = function(scoreArr) {
 
 function aiPlayer(computer) {
   var aiArr = [];
-    for (var i = 0; i <= 1; i++) {
-      var roll = diceRoll();
-      if (roll === 1) {
-        aiArr.push(0);
-        break;
-      } else {
-        aiArr.push(roll);
-      }
+  for (var i = 0; i <= 1; i++) {
+    var roll = diceRoll();
+    var roll2 = diceRoll();
+    if (roll === 1) {
+      aiArr.push(0);
+      break;
+    } else {
+      aiArr.push(roll);
     }
+    if (roll2 === 1) {
+      aiArr.push(0);
+      break;
+    } else {
+      aiArr.push(roll2);
+    }
+  }
   computer.calculate(aiArr);
   console.log(aiArr);
   console.log(computer.score);
@@ -30,6 +37,8 @@ function diceRoll () {
   var random = Math.floor(Math.random() * 6)
   return random+1;
 }
+
+
 
 $(document).ready(function() {
   var player1 = new Player(0);
@@ -51,7 +60,9 @@ $(document).ready(function() {
   // ONE PLAYER UI LOGIC
   $("#one-pigz").click(function(event) {
     var roll = diceRoll();
+    var roll2 = diceRoll();
     $("#one-results").append(roll + " ");
+    $("#one-results").append(roll2 + " ");
     if (roll === 1) {
       total = 0;
       scoreArr=[];
@@ -59,6 +70,14 @@ $(document).ready(function() {
       $("#ai-results").text(computerScore);
     } else {
       scoreArr.push(roll);
+    }
+    if (roll2 === 1) {
+      total = 0;
+      scoreArr=[];
+      var computerScore = aiPlayer(computer);
+      $("#ai-results").text(computerScore);
+    } else {
+      scoreArr.push(roll2);
     }
   });
   $("#one-pigz-hold").click(function(event) {
@@ -71,7 +90,9 @@ $(document).ready(function() {
   // TWO PLAYER UI LOGIC
   $("#dice-pigz").click(function(event) {
     var roll = diceRoll();
+    var roll2 = diceRoll();
     $("#pig-results").append(roll + " ");
+    $("#pig-results").append(roll2 + " ");
     if (roll === 1) {
       total = 0;
       $("#dice-pigz").hide();
@@ -82,6 +103,16 @@ $(document).ready(function() {
     } else {
       scoreArr.push(roll);
     }
+    if (roll2 === 1) {
+      total = 0;
+      $("#dice-pigz").hide();
+      $("#dice-pigz-hold").hide();
+      $("#dice-pigz2").show();
+      $("#dice-pigz-hold2").show();
+      scoreArr=[];
+    } else {
+      scoreArr.push(roll2);
+    }
   });
   $("#dice-pigz-hold").click(function(event) {
     player1.calculate(scoreArr)
@@ -91,11 +122,14 @@ $(document).ready(function() {
     $("#dice-pigz2").show();
     $("#dice-pigz-hold2").show();
     aiPlayer(computer);
+    scoreArr=[];
   });
 
   $("#dice-pigz2").click(function(event) {
     var roll = diceRoll();
+    var roll2 = diceRoll();
     $("#pig-results2").append(roll + " ");
+    $("#pig-results2").append(roll2 + " ");
     if (roll === 1) {
       total = 0;
       $("#dice-pigz").show();
@@ -106,6 +140,16 @@ $(document).ready(function() {
     } else {
       scoreArr.push(roll);
     }
+    if (roll2 === 1) {
+      total = 0;
+      $("#dice-pigz").show();
+      $("#dice-pigz-hold").show();
+      $("#dice-pigz2").hide();
+      $("#dice-pigz-hold2").hide();
+      scoreArr=[];
+    } else {
+      scoreArr.push(roll2);
+    }
   });
   $("#dice-pigz-hold2").click(function(event) {
     player2.calculate(scoreArr);
@@ -114,5 +158,6 @@ $(document).ready(function() {
     $("#dice-pigz-hold").show();
     $("#dice-pigz2").hide();
     $("#dice-pigz-hold2").hide();
+    scoreArr=[];
   });
 })
