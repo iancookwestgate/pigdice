@@ -2,6 +2,7 @@
 <html>
   <head>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="css/styles.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="js/scripts.js"></script>
@@ -10,44 +11,55 @@
   </head>
   <body>
     <div class="container" id="startScreen">
-      <h1>How do you want to play Pig Dice??</h1>
-      <button id="activate1P" class="btn-primary btn-lg">Single Player</button>
-      <button id="activate2P" class="btn-success btn-lg">Two Player</button>
+      <div class="jumbotron">
+        <h1>How do you want to play Pig Dice??</h1>
+        <button id="activate1P" class="btn-primary btn-lg">Single Player</button>
+        <button id="activate2P" class="btn-success btn-lg">Two Player</button>
+      </div>
     </div>
 
     <div class="container" id="onePlayer">
-      <h1>Single Player Pig Dice</h1>
-      <h3>Player 1</h3>
-      <button id="one-pigz" class="btn-primary btn-lg">Roll!</button>
-      <span id="one-results"></span>
-      <br>
-      <span id="one-score"></span>
-      <br>
-      <button id="one-pigz-hold" class="btn-danger btn-lg">Hold!</button>
-      <hr>
-      <h3>Computer</h3>
-      <span id="ai-results"></span>
-      <br>
-      <span id="ai-score"></span>
+      <div class="jumbotron">
+        <h1>Single Player Pig Dice</h1>
+        <h3>Player 1</h3>
+        <button id="one-pigz" class="btn-primary btn-lg">Roll!</button>
+        <span id="one-results"></span>
+        <br>
+        <span id="one-score"></span>
+        <br>
+        <button id="one-pigz-hold" class="btn-danger btn-lg">Hold!</button>
+        <hr>
+        <h3>Computer</h3>
+        <span id="ai-results"></span>
+        <br>
+        <span id="ai-score"></span>
+        <br>
+        <br>
+        <br>
+        <img src="img/star-lord.jpg" class="w3-spin" alt="STAR PIG" id="star-pig">
+        <img src="img/wtf-pig.jpg" class="w3-spin" alt="STAR PIG" id="wtf-pig">
+      </div>
     </div>
 
     <div class="container" id="twoPlayer">
-      <h1>Pig Dice</h1>
-      <h3>Player 1</h3>
-      <button id="dice-pigz" class="btn-primary btn-lg">Roll!</button>
-      <span id="pig-results"></span>
-      <br>
-      <span id="pig-score"></span>
-      <br>
-      <button id="dice-pigz-hold" class="btn-danger btn-lg">Hold!</button>
-      <hr>
-      <h3>Player 2</h3>
-      <button id="dice-pigz2" class="btn-success btn-lg">Now YOU roll!</button>
-      <span id="pig-results2"></span>
-      <br>
-      <span id="pig-score2"></span>
-      <br>
-      <button id="dice-pigz-hold2" class="btn-danger btn-lg">Hold!</button>
+      <div class="jumbotron">
+        <h1>Pig Dice</h1>
+        <h3>Player 1</h3>
+        <button id="dice-pigz" class="btn-primary btn-lg">Roll!</button>
+        <span id="pig-results"></span>
+        <br>
+        <span id="pig-score"></span>
+        <br>
+        <button id="dice-pigz-hold" class="btn-danger btn-lg">Hold!</button>
+        <hr>
+        <h3>Player 2</h3>
+        <button id="dice-pigz2" class="btn-success btn-lg">Now YOU roll!</button>
+        <span id="pig-results2"></span>
+        <br>
+        <span id="pig-score2"></span>
+        <br>
+        <button id="dice-pigz-hold2" class="btn-danger btn-lg">Hold!</button>
+      </div>
     </div>
   </body>
 </html>

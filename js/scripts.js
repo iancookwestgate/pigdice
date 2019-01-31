@@ -23,12 +23,16 @@ function aiPlayer(computer) {
       break;
     } else {
       aiArr.push(roll);
+      if (computer.score >= 95) {
+        wtfPig();}
     }
     if (roll2 === 1) {
       aiArr.push(0);
       break;
     } else {
       aiArr.push(roll2);
+      if (computer.score >= 95) {
+        wtfPig();}
     }
   }
   computer.calculate(aiArr);
@@ -37,11 +41,14 @@ function aiPlayer(computer) {
   return (computer.score);
 }
 
+function wtfPig () {
+  $("#wtf-pig").show();
+}
+
 function diceRoll () {
   var random = Math.floor(Math.random() * 6)
   return random+1;
 }
-
 
 
 $(document).ready(function() {
@@ -49,6 +56,15 @@ $(document).ready(function() {
   var player2 = new Player(0);
   var scoreArr = [];
   var computer = new Player(0);
+
+
+
+  function starPig () {
+    $("#star-pig").show();
+  }
+
+
+
   // SELECT ONE PLAYER
   $("#activate1P").click(function(event) {
     $("#onePlayer").show();
@@ -67,35 +83,34 @@ $(document).ready(function() {
     var roll2 = diceRoll();
     $("#one-results").append(roll + " ");
     $("#one-results").append(roll2 + ", ");
-    if (player1.score >= 100) {
-      <img class="active" src="img/star-lord.jpg" alt="STAR PIG">
-    } else if (roll === 1 && roll2 === 1) {
+
+
+    if (roll === 1 && roll2 === 1) {
     total = 0;
     player1.score = 0;
+    scoreArr = [];
     var computerScore = aiPlayer(computer);
     $("#ai-results").text(computerScore);
-    } else if (roll === 1) {
+  } else if (roll === 1 || roll2 === 1) {
       total = 0;
       scoreArr=[];
       var computerScore = aiPlayer(computer);
       $("#ai-results").text(computerScore);
     } else {
       scoreArr.push(roll);
-    }
-    if (roll2 === 1) {
-      total = 0;
-      scoreArr=[];
-      var computerScore = aiPlayer(computer);
-      $("#ai-results").text(computerScore);
-    } else {
       scoreArr.push(roll2);
     }
   });
+
   $("#one-pigz-hold").click(function(event) {
     player1.calculate(scoreArr)
     $("#one-score").text(player1.score);
     var computerScore = aiPlayer(computer);
     $("#ai-results").text(computerScore);
+    if (player1.score >= 100) {
+      starPig();}
+
+    scoreArr = [];
   });
 
   // TWO PLAYER UI LOGIC

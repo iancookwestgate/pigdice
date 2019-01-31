@@ -13,6 +13,18 @@
   display: none;
 }
 
-img {
+#star-pig {
   display: none;
+}
+
+#wtf-pig {
+  display: none;
+}
+
+.active {
+  display: show;
+}
+
+body {
+  background-color: lightblue;
 }
